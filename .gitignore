@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+venv/
+*.pyc
+
+# Docker
+.dockerignore
+
+# Allure Reports
+allure-report/
+allure-results/
+assets
+
+# IDE files
+.idea/
+.vscode/
+
+# Miscellaneous
+report.html
