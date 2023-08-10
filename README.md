@@ -2,6 +2,8 @@
 
 This project contains automated API tests for the Restful Booker service using Python.
 
+<img src="Screenshot_1.png" width="512"/>
+
 ## Purpose
 
 The purpose of this project is to showcase how to automate API tests for the Restful Booker service. The tests are written in Python using the `unittest` framework and utilize the `requests` library for making HTTP requests. Docker is also used to provide a consistent environment for running the tests.
@@ -72,7 +74,7 @@ You can clean up the generated Allure results and report directories if needed. 
 Using Allure reporting enhances your test analysis experience, making it easier to understand test results and identify issues in a visually appealing format.
 
 
-### Running Tests with Docker
+## Running Tests with Docker
 
 1. Install Docker on your machine.
 
