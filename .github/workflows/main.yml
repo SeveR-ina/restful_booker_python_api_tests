@@ -44,16 +44,17 @@ jobs:
     - name: SonarCloud Scan
       run: |
         # Install SonarScanner
-        wget -O sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.0.2311-windows.zip
-        Expand-Archive -Path sonar-scanner.zip -DestinationPath C:\sonar-scanner
-        $env:SONAR_SCANNER_HOME = "C:\sonar-scanner\sonar-scanner-4.6.0.2311-windows"
+        curl -o sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.0.2311-windows.zip
+        tar -xf sonar-scanner.zip -C C:\
+
+        # Set up environment variable
+        $env:SONAR_SCANNER_HOME = "C:\sonar-scanner-4.6.0.2311-windows"
 
         # Run SonarScanner analysis
         & "$env:SONAR_SCANNER_HOME\bin\sonar-scanner.bat" -D"sonar.projectKey=SeveR-ina_restful_booker_python_api_tests" -D"sonar.sources=." -D"sonar.host.url=https://sonarcloud.io" -D"sonar.login=${{ secrets.SONAR_TOKEN }}"
 
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
 
 #    - name: Build Docker Image
 #      run: docker-compose build
