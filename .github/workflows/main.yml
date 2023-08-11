@@ -17,46 +17,46 @@ jobs:
         ref: master
         persist-credentials: false  # Ensure this line is present
 
-#    - name: Retry Checkout on Failure
-#      run: |
-#        for i in 1 2 3; do
-#          git fetch --depth=1 origin +refs/heads/v2*:refs/remotes/origin/v2* +refs/tags/v2*:refs/tags/v2*
-#          if [ $? -eq 0 ]; then
-#            break
-#          elif [ $i -lt 3 ]; then
-#            sleep 10  # Wait before retrying
-#          else
-#            echo "Git checkout failed after multiple attempts"
-#            exit 1
-#          fi
-#        done
-#
-#    - name: Build Docker Image
-#      run: docker-compose build
-#
-#    - name: Run Tests in Docker
-#      run: docker-compose run restful_booker_python_api_tests
-#
-#    - name: Archive Test Artifacts
-#      uses: actions/upload-artifact@v2
-#      with:
-#        name: test-results
-#        path: allure-results
-#
-#    - name: Setup Python
-#      uses: actions/setup-python@v2
-#      with:
-#        python-version: 3.11.4  # Specify the version you need
-#
-#    - name: Install Dependencies
-#      run: |
-#        pip install -r requirements.txt
-#
-#    - name: Run Tests with pytest-html
-#      run: pytest --html=./reports/report.html
-#
-#    - name: Archive HTML Report
-#      uses: actions/upload-artifact@v2
-#      with:
-#        name: html-report
-#        path: reports
+    - name: Retry Checkout on Failure
+      run: |
+        for i in 1 2 3; do
+          git fetch --depth=1 origin +refs/heads/v2*:refs/remotes/origin/v2* +refs/tags/v2*:refs/tags/v2*
+          if [ $? -eq 0 ]; then
+            break
+          elif [ $i -lt 3 ]; then
+            sleep 10  # Wait before retrying
+          else
+            echo "Git checkout failed after multiple attempts"
+            exit 1
+          fi
+        done
+
+    - name: Build Docker Image
+      run: docker-compose build
+
+    - name: Run Tests in Docker
+      run: docker-compose run restful_booker_python_api_tests
+
+    - name: Archive Test Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: allure-results
+
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11.4  # Specify the version you need
+
+    - name: Install Dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run Tests with pytest-html
+      run: pytest --html=./reports/report.html
+
+    - name: Archive HTML Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: html-report
+        path: reports
