@@ -3,7 +3,7 @@ name: API Tests CI/CD
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
