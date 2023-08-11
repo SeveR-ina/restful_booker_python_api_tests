@@ -95,6 +95,17 @@ docker-compose build
 docker-compose up
 ```
 
+### CI/CD
+With main.yml file, CI/CD workflow will perform the following steps:
+
+- Checkout the repository.
+- Build the Docker image.
+- Run tests using Docker (including pytest and allure).
+- Archive the Allure test artifacts.
+- Install Python and dependencies.
+- Run tests again using pytest-html for HTML reports.
+- Archive the HTML report.
+
 ## Purpose of Test Files
 
 - `test_auth.py`: Contains a test case to authenticate and check the success of the authentication.
