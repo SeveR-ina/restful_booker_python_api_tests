@@ -2,3 +2,6 @@ version: '3'
 services:
   restful_booker_python_api_tests:
     build: .
+    volumes:
+      - ./allure-results:/app/allure-results
+      - ./reports:/app/reports
