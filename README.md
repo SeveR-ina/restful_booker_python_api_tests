@@ -16,6 +16,7 @@ The purpose of this project is to showcase how to automate API tests for the Res
 - Docker
 - Allure for reporting
 - `pytest-html` for additional reporting
+- SonarCloud Security Scan
 
 ## How to Run the Tests
 
