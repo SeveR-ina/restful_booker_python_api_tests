@@ -51,7 +51,7 @@ jobs:
         $env:SONAR_SCANNER_HOME = "C:\sonar-scanner-4.6.0.2311-windows"
 
         # Run SonarScanner analysis
-        & "$env:SONAR_SCANNER_HOME\bin\sonar-scanner.bat" -D"sonar.projectKey=SeveR-ina_restful_booker_python_api_tests" -D"sonar.sources=." -D"sonar.host.url=https://sonarcloud.io" -D"sonar.login=${{ secrets.SONAR_TOKEN }}"
+        & "$env:SONAR_SCANNER_HOME\bin\sonar-scanner.bat" -D"sonar.projectKey=SeveR-ina_restful_booker_python_api_tests" -D"sonar.sources=." -D"sonar.host.url=https://sonarcloud.io" -D"sonar.login=${{ secrets.SONAR_TOKEN }}" -D"sonar.organization=${{ secrets.SONAR_ORGANIZATION }}"
 
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
