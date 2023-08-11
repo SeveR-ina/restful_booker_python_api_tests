@@ -9,13 +9,6 @@ jobs:
   build:
     runs-on: windows-latest  # Use Windows runner
 
-    services:
-      docker:
-        image: docker:24.0.5-dind
-        ports:
-          - 2375:2375
-        options: --privileged
-
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
@@ -23,18 +16,6 @@ jobs:
         # Specify ref explicitly to avoid warning about Node.js 12
         ref: master
         persist-credentials: false  # Ensure this line is present
-
-    - name: Build Docker Image
-      run: docker-compose build
-
-    - name: Run Tests in Docker
-      run: docker-compose run restful_booker_python_api_tests
-
-    - name: Archive Test Artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: test-results
-        path: allure-results
 
     - name: Setup Python
       uses: actions/setup-python@v2
@@ -53,3 +34,15 @@ jobs:
       with:
         name: html-report
         path: reports
+
+    - name: Build Docker Image
+      run: docker-compose build
+
+    - name: Run Tests in Docker
+      run: docker-compose run restful_booker_python_api_tests
+
+    - name: Archive Test Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: allure-results
