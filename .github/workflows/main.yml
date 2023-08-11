@@ -1,0 +1,33 @@
+name: API Tests CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      docker:
+        image: docker:dind
+        ports:
+          - 2375:2375
+        options: --privileged
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Build Docker Image
+      run: docker-compose build
+
+    - name: Run Tests in Docker
+      run: docker-compose run restful_booker_python_api_tests
+
+    - name: Archive Test Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: allure-results
