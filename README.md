@@ -99,12 +99,12 @@ docker-compose up
 With main.yml file, CI/CD workflow will perform the following steps:
 
 - Checkout the repository.
-- Build the Docker image.
-- Run tests using Docker (including pytest and allure).
-- Archive the Allure test artifacts.
 - Install Python and dependencies.
+- Install pytest.
 - Run tests again using pytest-html for HTML reports.
 - Archive the HTML report.
+
+Runner starts every time when you push changes to master brunch and creates new workflow. Results and artifacts are available in Actions tab of the repository.
 
 ## Purpose of Test Files
 
