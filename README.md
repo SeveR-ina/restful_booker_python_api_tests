@@ -19,8 +19,8 @@ The purpose of this project is to showcase how to automate API tests for the Res
 
 ## How to Run the Tests
 
-1. Install Python on your machine.
-2. Clone this repository.
+1. Install Python on your machine;
+2. Clone this repository;
 3. Navigate to the project directory in the terminal.
 
 ### Running Tests Locally
