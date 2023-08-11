@@ -15,6 +15,21 @@ jobs:
       with:
         # Specify ref explicitly to avoid warning about Node.js 12
         ref: v2
+        persist-credentials: false  # Ensure this line is present
+
+    - name: Retry Checkout on Failure
+      run: |
+        for i in 1 2 3; do
+          git fetch --depth=1 origin +refs/heads/v2*:refs/remotes/origin/v2* +refs/tags/v2*:refs/tags/v2*
+          if [ $? -eq 0 ]; then
+            break
+          elif [ $i -lt 3 ]; then
+            sleep 10  # Wait before retrying
+          else
+            echo "Git checkout failed after multiple attempts"
+            exit 1
+          fi
+        done
 
     - name: Build Docker Image
       run: docker-compose build
