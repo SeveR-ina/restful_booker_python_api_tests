@@ -110,5 +110,3 @@ With main.yml file, CI/CD workflow will perform the following steps:
 
 - `test_auth.py`: Contains a test case to authenticate and check the success of the authentication.
 - `test_data.py`: Contains test data such as authentication credentials and base URLs.
-
-This project aims to provide a beginner-friendly guide for automating API tests and generating comprehensive test reports using Allure and pytest-html. Follow the steps above to execute the tests, generate reports, and analyze the test results visually.
