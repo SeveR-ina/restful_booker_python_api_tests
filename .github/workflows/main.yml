@@ -26,8 +26,15 @@ jobs:
       run: |
         pip install -r requirements.txt
 
+    - name: Run Tests
+      run: python -m unittest test_auth.py
+
+    - name: Install pytest
+      run: |
+        pip install pytest-html
+
     - name: Run Tests with pytest-html
-      run: pytest --html=./reports/report.html
+      run: pytest -v --html=report.html
 
     - name: Archive HTML Report
       uses: actions/upload-artifact@v2
