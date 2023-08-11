@@ -40,16 +40,16 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: html-report
-        path: reports
+        path: /report.html
 
-    - name: Build Docker Image
-      run: docker-compose build
-
-    - name: Run Tests in Docker
-      run: docker-compose run restful_booker_python_api_tests
-
-    - name: Archive Test Artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: test-results
-        path: allure-results
+#    - name: Build Docker Image
+#      run: docker-compose build
+#
+#    - name: Run Tests in Docker
+#      run: docker-compose run restful_booker_python_api_tests
+#
+#    - name: Archive Test Artifacts
+#      uses: actions/upload-artifact@v2
+#      with:
+#        name: test-results
+#        path: allure-results
