@@ -9,6 +9,13 @@ jobs:
   build:
     runs-on: windows-latest  # Use Windows runner
 
+    services:
+      docker:
+        image: docker:24.0.5-dind
+        ports:
+          - 2375:2375
+        options: --privileged
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
