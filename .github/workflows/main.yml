@@ -12,6 +12,9 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
+      with:
+        # Specify ref explicitly to avoid warning about Node.js 12
+        ref: v2
 
     - name: Build Docker Image
       run: docker-compose build
@@ -25,11 +28,14 @@ jobs:
         name: test-results
         path: allure-results
 
-    - name: Install Python and Dependencies
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11.4  # Specify the version you need
+
+    - name: Install Dependencies
       run: |
-        sudo apt-get update -y
-        sudo apt-get install -y python3 python3-pip
-        pip3 install -r requirements.txt
+        pip install -r requirements.txt
 
     - name: Run Tests with pytest-html
       run: pytest --html=./reports/report.html
