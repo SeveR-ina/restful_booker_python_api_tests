@@ -7,14 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    services:
-      docker:
-        image: docker:dind
-        ports:
-          - 2375:2375
-        options: --privileged
+    runs-on: windows-latest  # Use Windows runner
 
     steps:
     - name: Checkout Repository
