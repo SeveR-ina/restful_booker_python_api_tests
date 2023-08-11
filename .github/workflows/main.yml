@@ -39,8 +39,8 @@ jobs:
     - name: Archive HTML Report
       uses: actions/upload-artifact@v2
       with:
-        name: report.html
-        path: restful_booker_python_api_tests
+        name: report
+        path: restful_booker_python_api_tests/restful_booker_python_api_tests/report.html
 
 #    - name: Build Docker Image
 #      run: docker-compose build
