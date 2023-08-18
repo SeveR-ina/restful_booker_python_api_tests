@@ -4,4 +4,4 @@ services:
     build: .
     volumes:
       - ./allure-results:/app/allure-results
-      - ./reports:/app/reports
+      - ./allure-report:/app/allure-report

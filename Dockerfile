@@ -11,5 +11,8 @@ RUN pip install -r requirements.txt
 # Copy the rest of the application code into the container
 COPY . .
 
-# Run the test script when the container starts
-CMD ["python", "test_auth.py"]
+# Set an environment variable to indicate that we are running inside Docker
+ENV RUNNING_IN_DOCKER=true
+
+# Run the tests and generate Allure report
+CMD ["sh", "-c", "pytest --alluredir allure-results && allure generate allure-results --clean -o allure-report"]
