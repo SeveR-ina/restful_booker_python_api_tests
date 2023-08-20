@@ -2,8 +2,8 @@
 __pycache__/
 venv/
 *.pyc
-dist
-restful_booker_api_tests.egg-info
+dist/
+restful_booker_api_tests.egg-info/
 
 # Docker
 .dockerignore
@@ -11,7 +11,7 @@ restful_booker_api_tests.egg-info
 # Allure Reports
 allure-report/
 allure-results/
-assets
+assets/
 
 # IDE files
 .idea/

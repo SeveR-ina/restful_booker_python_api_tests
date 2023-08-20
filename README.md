@@ -31,17 +31,22 @@ The purpose of this project is to showcase how to automate API tests for the Res
 pip install -r requirements.txt
 ```
 
-2. Run the tests with Allure reporting:
+2. Run pytest API tests locally:
+```
+pytest -s --log-cli-level=INFO test_auth.py
+```
+
+3. Run the tests with Allure reporting:
 ```
 pytest --alluredir=allure-results test_auth.py
 ```
 
-2.1. Run the tests with pytest-html reporting:
+3.1. Run the tests with pytest-html reporting:
 ```
 pytest --html=reports/report.html test_auth.py
 ```
 
-2.2. Run the tests with both Allure and HTML reports:
+3.2. Run the tests with both Allure and HTML reports:
 ```
 pytest --alluredir=./allure-results --html=./reports/report.html
 ```
