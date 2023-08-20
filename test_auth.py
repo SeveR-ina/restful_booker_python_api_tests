@@ -3,8 +3,9 @@ import pytest
 import requests
 from test_data import BASE_URL, AUTH_DATA, WRONG_AUTH_DATA
 from logging_config import configure_logging  # Import the logging configuration function
-import os
-os.system("start report.html")
+
+# import os
+# os.system("start report.html")
 # for mac os: os.system("open report.html") / for linux: os.system("xdg-open # report.html")
 
 # Call the configure_logging function to set up logging
