@@ -9,8 +9,7 @@ restful_booker_api_tests.egg-info/
 .dockerignore
 
 # Allure Reports
-allure-report/
-allure-results/
+allure_result_folder
 assets/
 
 # IDE files
