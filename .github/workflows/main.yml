@@ -26,7 +26,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Tests
-        run: python -m unittest test_auth.py
+        run: python -m unittest tests/auth/test_auth.py
 
       - name: Install pytest
         run: |
