@@ -60,7 +60,7 @@ jobs:
         run: docker-compose build
 
       - name: Run Tests in Docker
-        run: docker-compose run restful_booker_python_api_tests
+        run: docker-compose up
 
       - name: Archive Test Artifacts
         uses: actions/upload-artifact@v2
