@@ -3,5 +3,4 @@ services:
   restful_booker_python_api_tests:
     build: .
     volumes:
-      - ./allure-results:/app/allure-results
-      - ./allure-report:/app/allure-report
+      - ./allure_result_folder:/app/allure_result_folder

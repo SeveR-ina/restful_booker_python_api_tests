@@ -10,7 +10,7 @@ restful_booker_api_tests.egg-info/
 
 # Allure Reports
 allure_result_folder
-assets/
+assets
 
 # IDE files
 .idea/

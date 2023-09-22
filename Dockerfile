@@ -15,4 +15,4 @@ COPY . .
 ENV RUNNING_IN_DOCKER=true
 
 # Run the tests and generate Allure report
-CMD ["sh", "-c", "pytest --alluredir allure-results && allure generate allure-results --clean -o allure-report"]
+RUN python -m pytest --alluredir=allure_result_folder ./tests
